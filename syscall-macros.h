@@ -11,10 +11,11 @@
     "d": %rdx
 */
 
-#define asm_read(fd, buf, size) asm("syscall" \
+#define asm_read(fd, buf, size) asm("xor %%rax, %%rax;" \
+                                    "syscall" \
                                     : \
-                                    :"a"(0),"D"(fd),"S"(buf),"d"(size) \
-) // rax == 0 == read syscall // rdi == 0 == stdin fd // rsi == buf ptr // rdx == buf size
+                                    :"D"(fd),"S"(buf),"d"(size) \
+) // rax == 0 == read syscall (we save a couple bytes using xor ;) ) // rdi == fd // rsi == buf ptr // rdx == buf size
 
 #define asm_write(fd, buf, size) asm("syscall" \
                                      : \
@@ -28,10 +29,11 @@
 
 #define asm_close(fd) asm("syscall" \
                           : \
-                          :"a"(fd)\
+                          :"a"(3), "D"(fd) \
 ) // rax == 3 == close syscall // rdi == fd
 
-#define asm_exit() asm("mov $1,%eax;" \
-                       "xor %ebx,%ebx;" \
-                       "int $0x80" \
-) // eax == 1 == exit interrupt // ebx == 0 == exit code 0 (noerr)
+#define asm_exit() asm("xor %%rdi,%%rdi;" \
+                       "syscall" \
+                       : \
+                       :"a"(60) \
+)// rax == 60 == exit syscall // rdi == 0 == no err exit code
