@@ -16,7 +16,9 @@
         "d" == rdx
 */
 
-/* Enable these to switch from a macro to a real function */
+/* Enable these to switch from a macro to a real function 
+   You can also put these above your #include for this file, if you want to have the function available in only one source file and not others*/
+
 //#define ENABLE_FUNCTION_READ
 //#define ENABLE_FUNCTION_WRITE
 //#define ENABLE_FUNCTION_EXIT
