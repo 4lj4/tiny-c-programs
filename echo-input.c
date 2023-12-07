@@ -1,7 +1,7 @@
 /*
     Echo user input N times
 */
-#include "funcs.h"
+#include "syscall-macros.h"
 
 #define N 5
 

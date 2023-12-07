@@ -1,7 +1,7 @@
 /*
     Write "helloworld" to a file
 */
-#include "funcs.h"
+#include "syscall-macros.h"
 
 #define O_WRONLY 01
 #define O_CREAT 0100

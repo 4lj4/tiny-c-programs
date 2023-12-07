@@ -1,19 +1,15 @@
 /*
-    How to compile the smallest file possible:
-        tcc main.c -nostdlib -c
-        ld.gold main.o -o main
-        strip --strip-all main
-        objcopy --strip-section-headers main main
-    Other notes:
-        "a": %rax
-        "b": %rbx
-        "c": %rcx
-        "d": %rdx
-        "D": %rdi
-        "S": %rsi
-        "d": %rdx
+    A collection of macros for writing usable programs without stdlib :)
 */
-
+/*
+    "a": %rax
+    "b": %rbx
+    "c": %rcx
+    "d": %rdx
+    "D": %rdi
+    "S": %rsi
+    "d": %rdx
+*/
 
 #define asm_read(fd, buf, size) asm("syscall" \
                                     : \

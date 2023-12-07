@@ -1,7 +1,7 @@
 /*
     A nice simple hello world!
 */
-#include "funcs.h"
+#include "syscall-macros.h"
 
 void _start(){
     asm_write(1, "helloworld", 11);

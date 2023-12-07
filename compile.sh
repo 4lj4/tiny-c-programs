@@ -8,3 +8,4 @@ for file in *.c; do
     echo -n "Compiled $filename, executable size (bytes): "
     stat --format=%s $filename
 done
+rm *.o
