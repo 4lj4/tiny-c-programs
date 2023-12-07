@@ -7,10 +7,10 @@
 
 void _start(){
     char buf[256];
-    asm_read(buf, 256);
+    asm_read(0, buf, 256);
     int i = 0;
     while(i++ < N){
-        asm_write(buf, 256);
+        asm_write(1, buf, 256);
     }
     asm_exit();
 }
