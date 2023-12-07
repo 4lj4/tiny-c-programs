@@ -1,8 +1,11 @@
-#define asmWrite(str, len) asm("int $0x80;"::"a"(4),"b"(1),"c"(str),"d"(len))
-#define asmExit() asm("mov $1,%eax;xor %ebx,%ebx;int $0x80")
+#include "funcs.h"
 
-__attribute__((force_align_arg_pointer))
 void _start(){
-    asmWrite("helloworld", 11);
-    asmExit();
+    char buf[256];
+    asm_read(buf, 256);
+    int i = 0;
+    while(i++ < 5){
+        asm_write(buf, 256);
+    }
+    asm_exit();
 }
