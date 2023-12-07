@@ -1,9 +1,9 @@
 /*
     Echo user input N times
 */
-#define N 5
-
 #include "funcs.h"
+
+#define N 5
 
 void _start(){
     char buf[256];

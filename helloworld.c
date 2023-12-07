@@ -1,3 +1,6 @@
+/*
+    A nice simple hello world!
+*/
 #include "funcs.h"
 
 void _start(){
